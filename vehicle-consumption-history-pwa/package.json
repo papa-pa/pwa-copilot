@@ -1,0 +1,27 @@
+{
+  "name": "vehicle-consumption-history-pwa",
+  "version": "1.0.0",
+  "description": "A Progressive Web App to record and track vehicle fuel consumption.",
+  "main": "src/main.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.1",
+    "vite": "^6.3.5"
+  },
+  "keywords": [
+    "PWA",
+    "vehicle",
+    "fuel",
+    "consumption"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
