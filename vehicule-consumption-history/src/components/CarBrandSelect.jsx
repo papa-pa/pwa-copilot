@@ -2,11 +2,16 @@ import React from 'react';
 
 // Liste exhaustive des marques automobiles en activité dans le monde (extrait, à compléter si besoin)
 const carBrands = [
-  'Toyota', 'Volkswagen', 'Ford', 'Honda', 'Chevrolet', 'Mercedes-Benz', 'BMW', 'Nissan', 'Hyundai', 'Kia',
-  'Renault', 'Peugeot', 'Fiat', 'Audi', 'Lexus', 'Mazda', 'Subaru', 'Jeep', 'Dacia', 'Skoda',
-  'Tesla', 'Volvo', 'Land Rover', 'Jaguar', 'Porsche', 'Mitsubishi', 'Suzuki', 'Citroën', 'Opel', 'Mini',
-  'Acura', 'Alfa Romeo', 'Infiniti', 'Lincoln', 'Genesis', 'Chery', 'BYD', 'Geely', 'Great Wall', 'Dongfeng',
-  'Tata', 'Mahindra', 'Proton', 'Perodua', 'Saab', 'Seat', 'Smart', 'SsangYong', 'Isuzu', 'Ram',
+  'Acura', 'Alfa Romeo', 'Audi', 'BMW', 'BYD',
+  'Chery', 'Chevrolet', 'Citroën', 'Dacia', 'Dongfeng',
+  'Infiniti', 'Isuzu', 'Fiat', 'Ford', 'Geely',
+  'Genesis', 'Great Wall', 'Honda', 'Hyundai', 'Jaguar',
+  'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln',
+  'Mahindra', 'Mazda', 'Mercedes-Benz', 'Mini','Mitsubishi', 
+  'Nissan', 'Opel', 'Perodua', 'Peugeot', 'Porsche',
+  'Proton', 'Ram', 'Renault', 'Saab', 'Seat',
+  'Skoda', 'Smart', 'SsangYong', 'Subaru', 'Suzuki',
+  'Tata', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo',
   // ... ajoutez d'autres marques si besoin
 ];
 
