@@ -32,7 +32,8 @@ function App() {
       mileage: mileageValue,
       km,
       liters,
-      price
+      price,
+      averageConsumption: km > 0 ? ((liters * 100) / km).toFixed(2) : null
     };
     const updatedHistory = [entry, ...history];
     setHistory(updatedHistory);
@@ -131,6 +132,16 @@ function App() {
               Soumettre
             </button>
           </div>
+          <div className="stats-block" style={{margin:'2rem 0', padding:'1rem', border:'1px solid #bbb', borderRadius:'8px', background:'#f8f8f8'}}>
+            <h2>Stats</h2>
+            {(() => {
+              // Filtrer l'historique pour le véhicule sélectionné
+              const filtered = history.filter(item => item.brand === selectedBrand && item.model === selectedModel && item.year === serviceYear && item.averageConsumption);
+              if (filtered.length === 0) return <p>Aucune donnée pour ce véhicule.</p>;
+              const avg = (filtered.reduce((sum, item) => sum + parseFloat(item.averageConsumption), 0) / filtered.length).toFixed(2);
+              return <p>Conso. Moyenne Global : <strong>{avg} L/100km</strong></p>;
+            })()}
+          </div>
         </div>
         <div style={{ flex: 1, marginLeft: '2rem', maxHeight: '500px', overflowY: 'auto', minWidth: '320px' }}>
           <h2>Historique</h2>
@@ -145,7 +156,8 @@ function App() {
                   Compteur : {item.mileage}<br />
                   Km : {item.km}<br />
                   Litres : {item.liters}<br />
-                  Prix : {item.price} €
+                  Prix : {item.price} €<br />
+                  Conso. Moyenne : {item.averageConsumption ? item.averageConsumption + ' L/100km' : '-'}
                 </li>
               ))}
             </ul>
