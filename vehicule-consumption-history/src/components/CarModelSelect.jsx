@@ -338,7 +338,7 @@ export default function CarModelSelect({ brand, value, onChange }) {
   const models = carModelsByBrand[brand] || [];
   return (
     <div>
-      <label htmlFor="car-model-select">Modèle :</label>
+      <label htmlFor="car-model-select">Modèle : </label>
       <select id="car-model-select" value={value} onChange={onChange} required disabled={!brand}>
         <option value="">-- Sélectionnez un modèle --</option>
         {models.map((model) => (

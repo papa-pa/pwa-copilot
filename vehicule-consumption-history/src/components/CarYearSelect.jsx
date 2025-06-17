@@ -27,7 +27,7 @@ export default function CarYearSelect({ model, value, onChange }) {
 
   return (
     <div style={{marginTop: '1rem'}}>
-      <label htmlFor="service-year-select">Année de mise en service :</label>
+      <label htmlFor="service-year-select">Année de mise en service : </label>
       <select
         id="service-year-select"
         value={value}

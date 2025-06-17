@@ -18,7 +18,7 @@ const carBrands = [
 export default function CarBrandSelect({ value, onChange }) {
   return (
     <div>
-      <label htmlFor="car-brand-select">Marque :</label>
+      <label htmlFor="car-brand-select">Marque : </label>
       <select id="car-brand-select" value={value} onChange={onChange} required>
         <option value="">-- Sélectionnez une marque --</option>
         {carBrands.map((brand) => (

@@ -43,7 +43,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Vehicule Consumption History</h1>
+      <h1>Historique de Consommation Véhicule</h1>
+      <p>Enregistrez et suivez la consommation de votre véhicule au fil du temps.</p>
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-end', marginBottom: '1rem' }}>
         <CarBrandSelect value={selectedBrand} onChange={e => {
           setSelectedBrand(e.target.value);
@@ -65,14 +66,18 @@ function App() {
         <div style={{ flex: 1 }}>
           <div className="consumption-block" style={{marginTop: '2rem', padding: '1rem', border: '1px solid #ccc', borderRadius: '8px'}}>
             <h2>Consumption</h2>
-            <label htmlFor="consumption-date">Date :</label>
+            <div align="center">
+              <p>Il est conseillé d'utiliser le kilométrage du véhicule pour plus de précision.</p>
+              <p>Une réinitialisation malencontreuse d'un channel de déplacement dans votre véhicule est vite arrivé.</p>
+            </div>
+            <label htmlFor="consumption-date">Date : </label>
             <input
               id="consumption-date"
               type="date"
               defaultValue={new Date().toISOString().split('T')[0]}
             />
             <br />
-            <label htmlFor="consumption-mileage" style={{marginTop: '1rem'}}>Vehicule Mileage :</label>
+            <label htmlFor="consumption-mileage" style={{marginTop: '1rem'}}>Kilométrage : </label>
             <input
               id="consumption-mileage"
               type="number"
@@ -94,7 +99,7 @@ function App() {
               }}
             />
             <br />
-            <label htmlFor="consumption-km" style={{marginTop: '1rem'}}>Km :</label>
+            <label htmlFor="consumption-km" style={{marginTop: '1rem'}}>Kilomètres Parcourus : </label>
             <input
               id="consumption-km"
               type="number"
@@ -104,7 +109,7 @@ function App() {
               style={{marginLeft: '0.5rem'}}
             />
             <br />
-            <label htmlFor="consumption-liters" style={{marginTop: '1rem'}}>Liters :</label>
+            <label htmlFor="consumption-liters" style={{marginTop: '1rem'}}>Nombre de Litres Consommés : </label>
             <input
               id="consumption-liters"
               type="number"
@@ -114,7 +119,7 @@ function App() {
               style={{marginLeft: '0.5rem'}}
             />
             <br />
-            <label htmlFor="consumption-price" style={{marginTop: '1rem'}}>Price :</label>
+            <label htmlFor="consumption-price" style={{marginTop: '1rem'}}>Prix du plein de carburant : </label>
             <input
               id="consumption-price"
               type="number"
