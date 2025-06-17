@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import CarBrandSelect from './components/CarBrandSelect'
 import CarModelSelect from './components/CarModelSelect'
-import CarYearSelect from './components/CarYearSelect'
+// import CarYearSelect from './components/CarYearSelect'
+import ModelGenerationSelect from './components/ModelGenerationSelect'
 
 function App() {
   const [selectedBrand, setSelectedBrand] = useState('');
@@ -54,7 +55,7 @@ function App() {
           setSelectedModel(e.target.value);
           setServiceYear(''); // reset year when model changes
         }} />
-        <CarYearSelect model={selectedModel} value={serviceYear} onChange={e => setServiceYear(e.target.value)} />
+        <ModelGenerationSelect model={selectedModel} value={serviceYear} onChange={e => setServiceYear(e.target.value)} />
       </div>
       {/* {selectedBrand && (
         <p>Marque sélectionnée : <strong>{selectedBrand}</strong></p>
