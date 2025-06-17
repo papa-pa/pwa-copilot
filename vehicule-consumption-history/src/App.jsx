@@ -8,6 +8,7 @@ function App() {
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [serviceYear, setServiceYear] = useState('');
+  const [mileage, setMileage] = useState('');
   const [history, setHistory] = useState(() => {
     const data = localStorage.getItem('consumptionHistory');
     return data ? JSON.parse(data) : [];
@@ -15,10 +16,11 @@ function App() {
 
   const handleSubmit = () => {
     const date = document.getElementById('consumption-date').value;
+    const mileageValue = document.getElementById('consumption-mileage').value;
     const km = document.getElementById('consumption-km').value;
     const liters = document.getElementById('consumption-liters').value;
     const price = document.getElementById('consumption-price').value;
-    if (!selectedBrand || !selectedModel || !date || !km || !liters || !price) {
+    if (!selectedBrand || !selectedModel || !date || !mileageValue || !km || !liters || !price) {
       alert('Veuillez remplir tous les champs.');
       return;
     }
@@ -27,6 +29,7 @@ function App() {
       model: selectedModel,
       year: serviceYear,
       date,
+      mileage: mileageValue,
       km,
       liters,
       price
@@ -34,6 +37,7 @@ function App() {
     const updatedHistory = [entry, ...history];
     setHistory(updatedHistory);
     localStorage.setItem('consumptionHistory', JSON.stringify(updatedHistory));
+    setMileage('');
   };
 
   return (
@@ -65,6 +69,28 @@ function App() {
               id="consumption-date"
               type="date"
               defaultValue={new Date().toISOString().split('T')[0]}
+            />
+            <br />
+            <label htmlFor="consumption-mileage" style={{marginTop: '1rem'}}>Vehicule Mileage :</label>
+            <input
+              id="consumption-mileage"
+              type="number"
+              placeholder="Compteur du véhicule (ex: 123456.7)"
+              min="0"
+              step="0.1"
+              style={{marginLeft: '0.5rem'}}
+              value={mileage}
+              onChange={e => {
+                setMileage(e.target.value);
+                // Préremplissage automatique du champ Km
+                const last = history.find(h => h.brand === selectedBrand && h.model === selectedModel && h.year === serviceYear && h.mileage);
+                if (last && e.target.value) {
+                  const diff = parseFloat(e.target.value) - parseFloat(last.mileage);
+                  if (!isNaN(diff) && diff >= 0) {
+                    document.getElementById('consumption-km').value = diff.toFixed(1);
+                  }
+                }
+              }}
             />
             <br />
             <label htmlFor="consumption-km" style={{marginTop: '1rem'}}>Km :</label>
@@ -116,6 +142,7 @@ function App() {
                 <li key={idx} style={{ marginBottom: '1rem', border: '1px solid #eee', borderRadius: '6px', padding: '0.5rem' }}>
                   <strong>{item.brand} {item.model} ({item.year})</strong><br />
                   Date : {item.date}<br />
+                  Compteur : {item.mileage}<br />
                   Km : {item.km}<br />
                   Litres : {item.liters}<br />
                   Prix : {item.price} €
