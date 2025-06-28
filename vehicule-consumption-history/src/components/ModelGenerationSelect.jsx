@@ -25,7 +25,6 @@ export default function ModelGenerationSelect({ model, value, onChange }) {
   // };
 
   const serviceGenerationByModel = {
-    'Torpedo': ['20-30 HP 1920'],
     'Giulia':
       [
         'Phase I Multijet (2015)',
