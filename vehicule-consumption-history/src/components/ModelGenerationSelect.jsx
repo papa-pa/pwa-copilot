@@ -67,6 +67,12 @@ export default function ModelGenerationSelect({ model, value, onChange }) {
 
     
     'Corolla': ['2010', '2012', '2015', '2018', '2021'],
+    'Auris':
+      [
+        'Generation I (2006-2012)',
+        'Generation II (2013-2018)',
+        'Generation III (2019-2021)'
+      ],
     'Golf': ['2009', '2013', '2017', '2020'],
     'Civic': ['2011', '2014', '2017', '2020'],
     'Model S': ['2012', '2016', '2020'],
